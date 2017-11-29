@@ -77,7 +77,7 @@ public class introduccion : MonoBehaviour {
 				style.alignment = TextAnchor.MiddleCenter;
 				style = GUI.skin.GetStyle ("Box");
 				style.fontSize = (int)(20.0f);
-				GUI.Box (new Rect (Screen.width/2, 9 * Screen.height / 10, Screen.width/2, Screen.height / 10), "Fusagasuga, 2016");
+				GUI.Box (new Rect (Screen.width/2, 9 * Screen.height / 10, Screen.width/2, Screen.height / 10), "Fusagasugá, 2016");
 
 				GUI.color = Color.black;
 				if (tiempo > 3 && tiempo < 5) {

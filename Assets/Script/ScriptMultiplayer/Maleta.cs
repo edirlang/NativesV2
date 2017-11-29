@@ -33,7 +33,8 @@ public class Maleta : MonoBehaviour
 		void OnGUI ()
 		{
 				if (mostarMaleta) {
-						GUI.Box (new Rect (0, 0, Screen.width, Screen.height), "Mi maleta");
+						GUI.Box (new Rect (Screen.width/6, Screen.height/10, Screen.width - Screen.width/3, Screen.height - Screen.height/5), "Mi maleta");
+
 						for (int i = 0; i < imagenes.Length; i++) {
 								if (objeto [i, 0] != null) {
 										if (i < 3) {

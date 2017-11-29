@@ -24,7 +24,7 @@ public class CaidaRio : MonoBehaviour {
 						if (General.misionActual [0] == "3") {
 								chia.transform.localScale = new Vector3 (0.15f, 0.15f, 0.15f);
 						}
-						chia.GetComponent<ChiaPerseguir> ().mensajeChia = "Haz perdido una vida \nTen cuidado la proxima vez";
+						chia.GetComponent<ChiaPerseguir> ().mensajeChia = "Haz perdido una vida \nTen cuidado la próxima vez";
 						chia.transform.parent = player.transform;
 						chia.transform.localPosition = new Vector3 (0f, 8f, 25f);
 

@@ -11,7 +11,7 @@ public class General : MonoBehaviour {
 	public static GameObject personaje;
 	public static Vector3 posicionIncial;
 	public static int idPersonaje, paso_mision=1;
-		public static string hosting = "http://nativesudec.000webhostapp.com/API/index.php/";
+	public static string hosting = "http://nativesudec.000webhostapp.com/API/index.php/";
 	//public static string hosting = "localhost/API/index.php/";
 
 		public static bool conectado = false, bono=false, mensajeRecojer = false;

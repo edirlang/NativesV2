@@ -69,7 +69,7 @@ public class EnriqueOlaya : MonoBehaviour {
 
 						if (General.paso_mision == 4) {
 								if (tiempo > 15) {
-										mensaje = "Bienvenido a la casona de Balmoral. " +
+										mensaje = "Bienvenido a la quinta de Balmoral. " +
 											"\n Construida en 1870.";
 
 								} else if (tiempo > 10) {

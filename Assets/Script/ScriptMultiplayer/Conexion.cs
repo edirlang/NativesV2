@@ -93,10 +93,14 @@ public class Conexion : MonoBehaviour
 						if (hayJugadores ())
 								Application.LoadLevel ("SelecionarPersonaje");
 						pantallaServidor ();
-						if (GUI.Button (new Rect (25 * (Screen.width / 32), 5 * (Screen.height / 6), Screen.width / 5, Screen.height / 10), "Volver al Menu")) {
-								Destroy (gameObject,1f);
+						if (GUI.Button (new Rect (25 * (Screen.width / 32), 5 * (Screen.height / 6), Screen.width / 5, Screen.height / 10), "Volver al Menú")) {
 								Application.LoadLevel ("menu");
-								Debug.Log ("Volver al menu");
+								Debug.Log ("Volver aL Menú");
+								if (Application.isMobilePlatform) {
+										Destroy (gameObject,1f);
+								} else {
+										Destroy (gameObject);
+								}
 						}
 				} else {
 						pantallaJuego ();
@@ -169,9 +173,9 @@ public class Conexion : MonoBehaviour
 				}
 
 				if (abrirMenu) {
-						GUI.Box (new Rect (0, 0, Screen.width, Screen.height), "Menu Pausa");
+						GUI.Box (new Rect (0, 0, Screen.width, Screen.height), "Menú Pausa");
 
-						if (GUI.Button (new Rect (Screen.width / 12, Screen.height /3, Screen.width / 6, Screen.height / 4), new GUIContent(volverConexion,"Volver al Menu"), stilobotones)) {
+						if (GUI.Button (new Rect (Screen.width / 12, Screen.height /3, Screen.width / 6, Screen.height / 4), new GUIContent(volverConexion,"Desconectar"), stilobotones)) {
 								StartCoroutine (desconectarUser ());
 						}
 
@@ -222,7 +226,7 @@ public class Conexion : MonoBehaviour
 				GUI.Box (new Rect (0, 0, Screen.width, (Screen.height)), "Bienvenido a Natives");
 
 				if (Network.peerType == NetworkPeerType.Disconnected) {
-						GUI.Label (new Rect (Screen.width / 24, 2 * (Screen.height / 10), 2 * (Screen.width / 3), (Screen.height / 10)), "Deseas ser el anfitrion de tus amigos");
+						GUI.Label (new Rect (Screen.width / 24, 2 * (Screen.height / 10), 2 * (Screen.width / 3), (Screen.height / 10)), "Deseas ser el anfitrión de tus amigos");
 
 						if (GUI.Button (new Rect (2 * (Screen.width / 3), 2 * (Screen.height / 10), (Screen.width / 6), (Screen.height / 10)), "Crear Sala")) {
 								StartServer ();
@@ -230,7 +234,7 @@ public class Conexion : MonoBehaviour
 
 						GUI.Label (new Rect (Screen.width / 24, 4 * (Screen.height / 10), Screen.width, (Screen.height / 10)), "Deseas conectarte a una sala");
 
-						GUI.Label (new Rect (Screen.width / 24, 5 * (Screen.height / 10), 2 * (Screen.width / 3), (Screen.height / 10)), "Escribe el numero Ip de tu amigo");
+						GUI.Label (new Rect (Screen.width / 24, 5 * (Screen.height / 10), 2 * (Screen.width / 3), (Screen.height / 10)), "Escribe el numero IP de tu amigo");
 						remoteIp = GUI.TextField (new Rect (7 * (Screen.width / 12), 5 * (Screen.height / 10), Screen.width / 4, (Screen.height / 10)), remoteIp);
 						//GUI.Label (new Rect(Screen.width/24, 6*(Screen.height/10), 2*(Screen.width/3), 5*(Screen.height/10)),"Escribe el numero del puerto de tu amigo");
 						//remotePort = GUI.TextField(new Rect(7*(Screen.width/12), 6*(Screen.height/10), Screen.width/4, (Screen.height/10)),remotePort);

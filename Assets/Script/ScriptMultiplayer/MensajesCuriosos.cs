@@ -17,7 +17,7 @@ public class MensajesCuriosos : MonoBehaviour {
 				mensajes[2] = "Esta iglesia la han traído los españoles, donde \n nos enseñaran a practicar su religión católica.";
 				mensajes[3] = "Sabias que el pago en monedas de oro como único \n intercambio llego con los españoles.";
 				mensajes[4] = "Iglesia reconstruida en 1776, \n mostrando la construcción de la nueva ciudad.";
-				mensajes[5] = "La evolucion llega tambien a las viviendas \n hecha de ......";
+				mensajes[5] = "La evolución llega también a las viviendas \n hecha de madera, piedra";
 				mensajes[6] = "Primera casona creada en 1850, traída por la cultura española. \n Fue usadas como un Casino por diversión del pueblo.";
 				mensajes[7] = "Te cuento, esta iglesia fue reconstruida en 1776, \n mostrando la construcción de la nueva ciudad. Desde aquí tu comunidad y tu empiezan a tomar la religión católica.";
 				mensajes[8] = "Esta casona fue usada en 1875, para firmar \n varios artículos presidenciales.";

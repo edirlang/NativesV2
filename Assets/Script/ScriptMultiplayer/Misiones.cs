@@ -12,38 +12,10 @@ public class Misiones : MonoBehaviour
 		public GameObject piezaOro, pjR12, pjR22, pjR32, pjR13, pjR23, pjR33;
 		public AudioClip c1_1,c1_2,c1_3,c1_4,c1_5,c1_6,c1_7,c1_8,c2_1,c2_2,c2_6,c2_F,c3_1,c3_2,c3_3,c3_4,c3_5,c3_6,c3_7,c3_8,c3_9,c3_10,c3_11,c3_F;
 		public bool terminoMision = false;
-		Mision mision1, mision2;
 		GameObject ayudaPersonaje;
 		private int numeroMaderas = 0, numerohojas = 0;
 		public int numeroLlave;
 		AudioSource vozChia;
-
-		struct Mision
-		{
-				public string nombre;
-				public string[] pasos;
-		};
-		// Use this for initialization
-		void Awake ()
-		{
-				mision1 = new Mision ();
-				string[] pasos = new string[5];
-				mision1.nombre = "Conociendo a nuestros antepasados";
-				pasos [0] = "Debes conseguir 6 trozos de madera para construir tu choza ";
-				pasos [1] = "Busca hojas de la palma de Boba, \n consige 20 hojas para poder construir tu casa";
-				pasos [2] = "Toma una vasija y trae barro, junto al lago la encontraras";
-				pasos [3] = "Ubicate en Fusagasuga, lugar donde se encuentra nuestra aldea \n alli podras construir tu choza";
-				mision1.pasos = pasos;
-
-				mision2 = new Mision ();
-				pasos = new string[4];
-				mision2.nombre = "Establecer el nuevo pueblo de indios";
-				pasos [0] = "Visita al Virrey en Nuestra señora de Altagracia, \n para ello debes seguir el camino de piedra";
-				pasos [1] = "Unete con 2 compañeros mas para conseguir el permiso con Gonzalo. \n Puedes intentar buscar compañeros, hablando por el chat ";
-				pasos [2] = "Gonzalo te ha dado el permiso, \n puedes pasar a hablar con el virrey";
-				pasos [3] = "Vuelve a Fusagasuga con tus compañeros \n  y habla con Bernandino";
-				mision2.pasos = pasos;
-		}
 
 		void Start ()
 		{
@@ -413,11 +385,11 @@ public class Misiones : MonoBehaviour
 								vozChia.clip = c1_4;
 								vozChia.Play ();
 						}
-						if (General.timepo > 9) {
+						if (General.timepo > 14) {
 								mensaje = "Ya tienes los palos estos los usaras como pared de tu \n " +
 										"choza. Ahora necesitamos el techo para cubrirnos";
 								
-						} else if (General.timepo > 14) {
+						} else if (General.timepo > 9) {
 								mensaje = "de la lluvia, para ello necestamos hojas de palma boba. \n" +
 										"Las cuales puedes conseguir en Pasca";
 								
@@ -810,7 +782,7 @@ public class Misiones : MonoBehaviour
 								vozChia.Play ();
 						}
 						mensaje = "Recuerda busca a Jose Celestino mutis en la casona \n" +
-							"la venta, él te dira que hacer.";
+								"la venta, él te dirá que hacer.";
 						break;
 				case 10:
 						if (vozChia.clip.name != c3_10.name && GameObject.Find ("Chia(Clone)").GetComponent<ChiaPerseguir>().llegoChia) {

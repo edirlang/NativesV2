@@ -152,7 +152,7 @@ public class recaudador : MonoBehaviour {
 										mision.procesoMision3 (General.paso_mision);
 								}
 						}else {
-								mensaje = "Hola, bienvenido a fusagasuga";
+								mensaje = "Hola, bienvenido a Fusagasugá";
 						}
 
 						GUIStyle style = new GUIStyle ();

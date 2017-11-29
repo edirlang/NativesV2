@@ -61,7 +61,7 @@ public class barro : MonoBehaviour {
 			style.alignment = TextAnchor.MiddleCenter;
 			style = GUI.skin.GetStyle ("label");
 			style.fontSize = (int)(20.0f );
-			GUI.Label(new Rect(0,7*(Screen.height/8),Screen.width,Screen.height/16),"Haz recogido barro(arcilla)");
+			GUI.Label(new Rect(0,7*(Screen.height/8),Screen.width,Screen.height/16),"Haz recogido barro (arcilla)");
 		}
 	}
 	public void OnTriggerEnter(Collider colision){

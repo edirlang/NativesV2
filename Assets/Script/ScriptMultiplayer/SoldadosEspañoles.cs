@@ -75,7 +75,7 @@ public class SoldadosEspañoles : MonoBehaviour {
 
 						if (tiempo > 20 && tiempo < 29) {
 								llego = true;
-								mensaje = "Esta tierras son ahora del virey";
+								mensaje = "Esta tierra es ahora del virrey";
 						}
 
 						if (tiempo < 1 && tiempo > 0 && GameObject.Find ("ChozaLlamas")) {

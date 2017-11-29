@@ -185,7 +185,7 @@ public class AcionesBernardino : MonoBehaviour {
 										"donde el virrey que se encuentra en Altagracia de Sumapaz y traerme\n" +
 										"un permiso, y así poder darte las llaves de tu humilde morada.";
 						} else {
-								mensaje = "Ve a tu casa, y resguardate de esta terrible tormenta";
+								mensaje = "Ve a tu casa, y resguárdate de esta terrible tormenta";
 						}
 
 						GUIStyle style = new GUIStyle ();

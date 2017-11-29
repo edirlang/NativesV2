@@ -148,7 +148,7 @@ public class ActivarGonzalo : MonoBehaviour
 												voz.clip = g4;
 												voz.Play ();
 										}
-										mensaje = "podeis pasar, sean respetusos con su virrey";
+										mensaje = "podéis pasar, sean respetuosos con su virrey";
 										reja.transform.Translate(0.01f, 0, 0);
 								}
 								break;
@@ -168,7 +168,7 @@ public class ActivarGonzalo : MonoBehaviour
 												voz.clip = g4;
 												voz.Play ();
 										}
-										mensaje = "podeis pasar, sean respetusos con su virrey";
+										mensaje = "podéis pasar, sean respetuosos con su virrey";
 										//GameObject.Find ("puerta").GetComponent<BoxCollider> ().isTrigger = true;
 								}
 								if(reja.transform.localPosition.z < 4.1f)
