@@ -1,0 +1,131 @@
+fileFormatVersion: 2
+guid: 802de21eed2deb642b6b1735742c1fc8
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: antebrazo_derecho
+    100002: Antebrazo_izquierdo
+    100004: Armature
+    100006: Armature_001
+    100008: Cubo
+    100010: Cuello
+    100012: //RootNode
+    100014: Esfera
+    100016: Esfera_001
+    100018: Hombro_derecho
+    100020: Hombro_izquierdo
+    100022: Icosphere
+    100024: Mano_derecha
+    100026: Mano_izquierda
+    100028: pecho_derecho
+    100030: Pecho_izquierdo
+    100032: AntebrazoDer
+    100034: AntebrazoIzq
+    100036: BrazoDer
+    100038: BrazoIzq
+    100040: Cabeza
+    100042: Cuerpo
+    100044: Cuerpo_0
+    100046: CuerpoNube
+    100048: ManoDer
+    100050: ManoIzq
+    100052: NubeDer
+    100054: NubeIzq
+    100056: PechoDer
+    100058: PechoIzq
+    400000: antebrazo_derecho
+    400002: Antebrazo_izquierdo
+    400004: Armature
+    400006: Armature_001
+    400008: Cubo
+    400010: Cuello
+    400012: //RootNode
+    400014: Esfera
+    400016: Esfera_001
+    400018: Hombro_derecho
+    400020: Hombro_izquierdo
+    400022: Icosphere
+    400024: Mano_derecha
+    400026: Mano_izquierda
+    400028: pecho_derecho
+    400030: Pecho_izquierdo
+    400032: AntebrazoDer
+    400034: AntebrazoIzq
+    400036: BrazoDer
+    400038: BrazoIzq
+    400040: Cabeza
+    400042: Cuerpo
+    400044: Cuerpo_0
+    400046: CuerpoNube
+    400048: ManoDer
+    400050: ManoIzq
+    400052: NubeDer
+    400054: NubeIzq
+    400056: PechoDer
+    400058: PechoIzq
+    2300000: Icosphere
+    3300000: Icosphere
+    4300000: Esfera
+    4300002: Cubo
+    4300004: Esfera_001
+    4300006: Icosphere
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Cubo
+    13700002: Esfera
+    13700004: Esfera_001
+    13700006: Icosphere
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

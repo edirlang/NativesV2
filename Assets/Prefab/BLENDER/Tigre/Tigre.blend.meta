@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: 47fd09de025f4664896d2064a783b118
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cube_001
+    100004: Cube_002
+    100006: //RootNode
+    100008: AntebrazoDer
+    100010: AntebrazoIzq
+    100012: Armature
+    100014: BocaAbajo
+    100016: BocaArriba
+    100018: BrazoDer
+    100020: BrazoIzq
+    100022: Cadera
+    100024: CanillaDer
+    100026: CanillaIzq
+    100028: Cola
+    100030: Cola1
+    100032: Cola2
+    100034: Cola3
+    100036: Cola4
+    100038: Cola5
+    100040: Cola6
+    100042: Cola7
+    100044: Cola8
+    100046: Cola9
+    100048: Cuello
+    100050: HombroDer
+    100052: HombroIzq
+    100054: ManoDer
+    100056: ManoIzq
+    100058: Melena
+    100060: MelenaAbajo
+    100062: MelenaArriba
+    100064: PataDer
+    100066: PataIzq
+    100068: Pecho
+    100070: PiernaDer
+    100072: PiernaIzq
+    100074: TroncoDer
+    100076: TronoIzq
+    400000: Cube
+    400002: Cube_001
+    400004: Cube_002
+    400006: //RootNode
+    400008: AntebrazoDer
+    400010: AntebrazoIzq
+    400012: Armature
+    400014: BocaAbajo
+    400016: BocaArriba
+    400018: BrazoDer
+    400020: BrazoIzq
+    400022: Cadera
+    400024: CanillaDer
+    400026: CanillaIzq
+    400028: Cola
+    400030: Cola1
+    400032: Cola2
+    400034: Cola3
+    400036: Cola4
+    400038: Cola5
+    400040: Cola6
+    400042: Cola7
+    400044: Cola8
+    400046: Cola9
+    400048: Cuello
+    400050: HombroDer
+    400052: HombroIzq
+    400054: ManoDer
+    400056: ManoIzq
+    400058: Melena
+    400060: MelenaAbajo
+    400062: MelenaArriba
+    400064: PataDer
+    400066: PataIzq
+    400068: Pecho
+    400070: PiernaDer
+    400072: PiernaIzq
+    400074: TroncoDer
+    400076: TronoIzq
+    2300000: Cube
+    2300002: Cube_001
+    2300004: Cube_002
+    3300000: Cube
+    3300002: Cube_001
+    3300004: Cube_002
+    4300000: Cube_002
+    4300002: Cube_001
+    4300004: Cube
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Cube_001
+    13700004: Cube_002
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

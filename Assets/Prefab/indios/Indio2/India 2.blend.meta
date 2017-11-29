@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 128ee4f44a88f6e40afacf4f712a6313
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: antebrazo_derecho
+    100002: antebrazo_izquierdo
+    100004: Armature
+    100006: Cabeza
+    100008: Cadera
+    100010: canilla_derecha
+    100012: Canilla_izquierda
+    100014: Esfera_002
+    100016: Esfera_003
+    100018: hombro_derecho
+    100020: hombro_izquierdo
+    100022: //RootNode
+    100024: mano_derecha
+    100026: mano_izquierda
+    100028: muslo_derecho
+    100030: Muslo_izquierdo
+    100032: Pie_derecho
+    100034: Pie_izquierdo
+    100036: Plano_001
+    100038: Tronco
+    100040: AntebrazoDer
+    100042: AntebrazoIzq
+    100044: BrazoDer
+    100046: BrazoIzq
+    100048: CanillaDer
+    100050: CanillaIzq
+    100052: Cube
+    100054: Cuello
+    100056: ManoDer
+    100058: ManoIzq
+    100060: MusloDer
+    100062: MusloIzq
+    100064: Pecho
+    100066: PieDer
+    100068: PieIzq
+    100070: TobilloDer
+    100072: TobilloIzq
+    100074: AntBrazoDer
+    100076: AntBrazoIzq
+    100078: Cubo
+    100080: MuzloDer
+    100082: MuzloIzq
+    100084: PiernaDer
+    100086: PiernaIzq
+    400000: antebrazo_derecho
+    400002: antebrazo_izquierdo
+    400004: Armature
+    400006: Cabeza
+    400008: Cadera
+    400010: canilla_derecha
+    400012: Canilla_izquierda
+    400014: Esfera_002
+    400016: Esfera_003
+    400018: hombro_derecho
+    400020: hombro_izquierdo
+    400022: //RootNode
+    400024: mano_derecha
+    400026: mano_izquierda
+    400028: muslo_derecho
+    400030: Muslo_izquierdo
+    400032: Pie_derecho
+    400034: Pie_izquierdo
+    400036: Plano_001
+    400038: Tronco
+    400040: AntebrazoDer
+    400042: AntebrazoIzq
+    400044: BrazoDer
+    400046: BrazoIzq
+    400048: CanillaDer
+    400050: CanillaIzq
+    400052: Cube
+    400054: Cuello
+    400056: ManoDer
+    400058: ManoIzq
+    400060: MusloDer
+    400062: MusloIzq
+    400064: Pecho
+    400066: PieDer
+    400068: PieIzq
+    400070: TobilloDer
+    400072: TobilloIzq
+    400074: AntBrazoDer
+    400076: AntBrazoIzq
+    400078: Cubo
+    400080: MuzloDer
+    400082: MuzloIzq
+    400084: PiernaDer
+    400086: PiernaIzq
+    2300000: Esfera_002
+    2300002: Esfera_003
+    2300004: Plano_001
+    3300000: Esfera_002
+    3300002: Esfera_003
+    3300004: Plano_001
+    4300000: Esfera_002
+    4300002: Esfera_003
+    4300004: Plano_001
+    4300006: Cube
+    4300008: Cubo
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Esfera_002
+    13700004: Esfera_003
+    13700006: Cubo
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

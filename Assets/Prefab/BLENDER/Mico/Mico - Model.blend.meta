@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 019cd4236a8ffe941a61e2ba41aa194b
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cube_002
+    100004: //RootNode
+    100006: AntebrazoDer
+    100008: AntebrazoIzq
+    100010: AntepiernaDer
+    100012: AntepiernaIzq
+    100014: Armature
+    100016: Bone_019
+    100018: BrazoDer
+    100020: BrazoIzq
+    100022: Cabeza
+    100024: Cadera
+    100026: Cola
+    100028: Cola1
+    100030: Cola2
+    100032: Cola3
+    100034: Cola4
+    100036: Cola5
+    100038: Cola6
+    100040: Cola7
+    100042: HombroDer
+    100044: HombroIzq
+    100046: ManoDer
+    100048: ManoIzq
+    100050: MuzloDer
+    100052: MuzloIzq
+    100054: PataDer
+    100056: PataIzq
+    100058: Pecho
+    100060: PiernaDer
+    100062: PiernaIzq
+    400000: Cube
+    400002: Cube_002
+    400004: //RootNode
+    400006: AntebrazoDer
+    400008: AntebrazoIzq
+    400010: AntepiernaDer
+    400012: AntepiernaIzq
+    400014: Armature
+    400016: Bone_019
+    400018: BrazoDer
+    400020: BrazoIzq
+    400022: Cabeza
+    400024: Cadera
+    400026: Cola
+    400028: Cola1
+    400030: Cola2
+    400032: Cola3
+    400034: Cola4
+    400036: Cola5
+    400038: Cola6
+    400040: Cola7
+    400042: HombroDer
+    400044: HombroIzq
+    400046: ManoDer
+    400048: ManoIzq
+    400050: MuzloDer
+    400052: MuzloIzq
+    400054: PataDer
+    400056: PataIzq
+    400058: Pecho
+    400060: PiernaDer
+    400062: PiernaIzq
+    2300000: Cube
+    2300002: Cube_002
+    3300000: Cube
+    3300002: Cube_002
+    4300000: Cube
+    4300002: Cube_002
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Cube_002
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

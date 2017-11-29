@@ -1,0 +1,129 @@
+fileFormatVersion: 2
+guid: 88d426f3b520772439083a6d601e234a
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Aleta_Abajo
+    100002: Aleta_Arriba
+    100004: Aleta_trasera
+    100006: Armature
+    100008: Bone
+    100010: Cabeza
+    100012: Cola
+    100014: Cube
+    100016: Cube_MeshPart0
+    100018: Cube_MeshPart1
+    100020: Cube_MeshPart10
+    100022: Cube_MeshPart2
+    100024: Cube_MeshPart3
+    100026: Cube_MeshPart4
+    100028: Cube_MeshPart5
+    100030: Cube_MeshPart6
+    100032: Cube_MeshPart7
+    100034: Cube_MeshPart8
+    100036: Cube_MeshPart9
+    100038: //RootNode
+    100040: Tronco
+    100042: Tronco_Abajo
+    100044: Tronco_Arriba
+    400000: Aleta_Abajo
+    400002: Aleta_Arriba
+    400004: Aleta_trasera
+    400006: Armature
+    400008: Bone
+    400010: Cabeza
+    400012: Cola
+    400014: Cube
+    400016: Cube_MeshPart0
+    400018: Cube_MeshPart1
+    400020: Cube_MeshPart10
+    400022: Cube_MeshPart2
+    400024: Cube_MeshPart3
+    400026: Cube_MeshPart4
+    400028: Cube_MeshPart5
+    400030: Cube_MeshPart6
+    400032: Cube_MeshPart7
+    400034: Cube_MeshPart8
+    400036: Cube_MeshPart9
+    400038: //RootNode
+    400040: Tronco
+    400042: Tronco_Abajo
+    400044: Tronco_Arriba
+    4300000: Cube_MeshPart0
+    4300002: Cube_MeshPart1
+    4300004: Cube_MeshPart2
+    4300006: Cube_MeshPart3
+    4300008: Cube_MeshPart4
+    4300010: Cube_MeshPart5
+    4300012: Cube_MeshPart6
+    4300014: Cube_MeshPart7
+    4300016: Cube_MeshPart8
+    4300018: Cube_MeshPart9
+    4300020: Cube_MeshPart10
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Cube_MeshPart0
+    13700002: Cube_MeshPart1
+    13700004: Cube_MeshPart10
+    13700006: Cube_MeshPart2
+    13700008: Cube_MeshPart3
+    13700010: Cube_MeshPart4
+    13700012: Cube_MeshPart5
+    13700014: Cube_MeshPart6
+    13700016: Cube_MeshPart7
+    13700018: Cube_MeshPart8
+    13700020: Cube_MeshPart9
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
