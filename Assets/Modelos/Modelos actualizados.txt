@@ -1,0 +1,10 @@
+Modelo,				Comprobado,		En el juego
+Atrio 				si
+Davivienda              	si
+Heladeria el triunfo		si
+Hombres siglo XXI		si
+Indias				si
+Palma alta			si
+Palma boba			si
+Parqueadero			si
+Parqueadero esquina		si
