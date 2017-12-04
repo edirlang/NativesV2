@@ -1,11 +1,11 @@
 Modelo,				Comprobado,		En el juego
-Alcaldia			Si
-Atrio 				si
-Davivienda              	si
-Heladeria el triunfo		si
+Alcaldia			Si, si
+Atrio 				si, si
+Davivienda              	si, si
+Heladeria el triunfo		si, si
 Hombres siglo XXI		si
 Indias				si
 Palma alta			si
 Palma boba			si
-Parqueadero			si
-Parqueadero esquina		si
+Parqueadero			si, si
+Parqueadero esquina		Esta Mal

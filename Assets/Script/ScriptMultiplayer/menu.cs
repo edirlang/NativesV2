@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class menu : MonoBehaviour
 {
 
 		public GameObject objetoInstanciar, pj1, pj2, pj3, pj12, pj22, pj13, pj23, pj33, pj32, pjR12, pjR22, pjR32;
-		public GameObject Ubicacioncamara;
+		public GameObject Ubicacioncamara, obj_mision;
+		public Text label_username, label_mision;
 		public Texture monedas, vidas;
 		private string[] misiones, mision;
 		private int opciones = 0;
@@ -98,38 +100,31 @@ public class menu : MonoBehaviour
 		private void pantallaNormal (GUIStyle style)
 		{
 				GUI.Box (new Rect (Screen.width / 12, Screen.height / 24, 5 * (Screen.width / 12), 23 * (Screen.height / 24)), "");
-		
-				GUI.Label (new Rect (2 * (Screen.width / 6) - Screen.width / 8, (Screen.height / 10), Screen.width / 6, Screen.height / 12), General.username);
+	
+				label_username.text = General.username;
+				label_mision.text = General.misionActual [1];
+				
+				//GUI.Label (new Rect (2 * (Screen.width / 6) - Screen.width / 8, (Screen.height / 10), Screen.width / 6, Screen.height / 12), General.username);
 				if (porcentaje != "100%")
 						GUI.Label (new Rect (Screen.width - Screen.width / 8, 9 * (Screen.height / 10), Screen.width / 8, Screen.height / 10), porcentaje);
 
 				style = GUI.skin.GetStyle ("label");
 				style.fontSize = (int)(20.0f);
 		
-				GUI.Box (new Rect (2 * (Screen.width / 6) - Screen.width / 8, 7 * (Screen.height / 40), Screen.width / 6, Screen.height / 48), "");
+				//GUI.Box (new Rect (2 * (Screen.width / 6) - Screen.width / 8, 7 * (Screen.height / 40), Screen.width / 6, Screen.height / 48), "");
 		
-				GUI.Label (new Rect (2 * (Screen.width / 6) - Screen.width / 8, 3 * (Screen.height / 10), Screen.width / 6, Screen.height / 12), "Misión Actual");
+				//GUI.Label (new Rect (2 * (Screen.width / 6) - Screen.width / 8, 3 * (Screen.height / 10), Screen.width / 6, Screen.height / 12), "Misión Actual");
 		
-				GUI.Label (new Rect (3 * (Screen.width / 12) - Screen.width / 8, 4 * (Screen.height / 10), Screen.width / 3, Screen.height / 3), General.misionActual [1]);
+				//GUI.Label (new Rect (3 * (Screen.width / 12) - Screen.width / 8, 4 * (Screen.height / 10), Screen.width / 3, Screen.height / 3), General.misionActual [1]);
 		
-				if (GUI.Button (new Rect (3 * (Screen.width / 12) - Screen.width / 8, 7 * (Screen.height / 10), Screen.width / 7, Screen.height / 12), "Misiones")) {
-						opciones = 2;
-				}
+				//if (GUI.Button (new Rect (3 * (Screen.width / 12) - Screen.width / 8, 7 * (Screen.height / 10), Screen.width / 7, Screen.height / 12), "Misiones")) {
+				//		opciones = 2;
+				//}
 
 				if (GUI.Button (new Rect (5 * (Screen.width / 12) - Screen.width / 8, 7 * (Screen.height / 10), Screen.width / 7, Screen.height / 12), "Configuracion")) {
 						opciones = 4;
 				}
-		
-				if (GUI.Button (new Rect (2 * (Screen.width / 6) - Screen.width / 8, 8 * (Screen.height / 10), Screen.width / 5, Screen.height / 12), "Cerrar Sesión")) {
-						opciones = 1;
-						General.conectado = false;
-						General.username = null;
-						General.idPersonaje = 0;
-						General.personaje = null;
-						Destroy (GameObject.Find("IniciarVariables"));
-						Debug.Log ("eliminado");
-						Application.LoadLevel ("main");
-				}
+
 		
 		
 				GUI.Box (new Rect (6 * (Screen.width / 10) - Screen.width / 16, (Screen.height / 10), Screen.width / 12, Screen.height / 12), vidas, style);
@@ -153,34 +148,52 @@ public class menu : MonoBehaviour
 				}
 		}
 
-		private void pantallaMisiones ()
-		{
-				GUIStyle style = new GUIStyle ();
-				style = GUI.skin.GetStyle ("box");
-				style.fontSize = (int)(25.0f);
-				style = GUI.skin.GetStyle ("label");
-				style.fontSize = (int)(25.0f);
-				style.alignment = TextAnchor.UpperLeft;
-				GUI.Box (new Rect (Screen.width / 10, Screen.height / 10, Screen.width - Screen.width / 6, Screen.height - Screen.height / 6), "Misiones");
-
-				GUI.Label (new Rect (3 * (Screen.width / 20), 2 * (Screen.height / 10), Screen.width / 10, Screen.height / 12), "ID");
-				GUI.Label (new Rect (4 * (Screen.width / 20), 2 * (Screen.height / 10), Screen.width / 3, Screen.height / 12), "Nombre");
-
-				style.fontSize = (int)(18.0f);
-				for (int i = 0; i < misiones.Length - 1; i++) {
-						string[] mision_array = misiones [i].Split ('-');
-						GUI.Label (new Rect (3 * (Screen.width / 20), (i + 3) * (Screen.height / 10), Screen.width / 14, Screen.height / 12), mision_array [0]);
-						GUI.Label (new Rect (4 * (Screen.width / 20), (i + 3) * (Screen.height / 10), Screen.width / 2, Screen.height / 12), mision_array [1]);
-						if (GUI.Button (new Rect (8 * (Screen.width / 10), (i + 3) * (Screen.height / 10), Screen.width / 10, Screen.height / 12), "Detalles")) {
-								opciones = 3;
-								mision = mision_array;
-						}
-				}
-
-				if (GUI.Button (new Rect (7 * (Screen.width / 10), Screen.height - Screen.height / 5, Screen.width / 6, Screen.height / 10), "Volver")) {
-						opciones = 0;
-				}
+		public void logout(){
+			opciones = 1;
+			General.conectado = false;
+			General.username = null;
+			General.idPersonaje = 0;
+			General.personaje = null;
+			Destroy (GameObject.Find("IniciarVariables"));
+			Debug.Log ("eliminado");
+			Application.LoadLevel ("main");
 		}
+		
+	public void play(){
+		opciones = 1;
+		SceneManager.LoadScene ("lobyScena");
+	}
+
+	public void pantallaMisiones ()
+	{
+		/*
+		 * for (int i = 0; i < misiones.Length - 1; i++) {
+			string[] mision_array = misiones [i].Split ('-');
+			GameObject obj_mision_1 = obj_mision;
+
+			obj_mision_1.GetComponent<Transform>().FindChild("id").gameObject.GetComponent<Text>().text = mision_array [0];
+			obj_mision_1.GetComponent<Transform>().FindChild("nombre").gameObject.GetComponent<Text>().text = mision_array [0];
+			obj_mision_1.GetComponent<Transform>().FindChild("button").gameObject.GetComponent<Button>().onClick = this.pantallaMision();
+
+			obj_mision_1.transform.localPosition.x += 20;
+
+		}
+		*/
+		for (int i = 0; i < misiones.Length - 1; i++) {
+			string[] mision_array = misiones [i].Split ('-');
+
+					GUI.Label (new Rect (3 * (Screen.width / 20), (i + 3) * (Screen.height / 10), Screen.width / 14, Screen.height / 12), mision_array [0]);
+					GUI.Label (new Rect (4 * (Screen.width / 20), (i + 3) * (Screen.height / 10), Screen.width / 2, Screen.height / 12), mision_array [1]);
+					if (GUI.Button (new Rect (8 * (Screen.width / 10), (i + 3) * (Screen.height / 10), Screen.width / 10, Screen.height / 12), "Detalles")) {
+							opciones = 3;
+							mision = mision_array;
+					}
+			}
+
+			if (GUI.Button (new Rect (7 * (Screen.width / 10), Screen.height - Screen.height / 5, Screen.width / 6, Screen.height / 10), "Volver")) {
+					opciones = 0;
+			}
+	}
 
 		private void pantallaMision ()
 		{
