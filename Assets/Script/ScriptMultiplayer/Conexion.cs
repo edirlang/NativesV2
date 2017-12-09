@@ -7,6 +7,7 @@ public class Conexion : MonoBehaviour
 
 		private const string typeName = "Natives-v1.0";
 		private string ipServer = "", remoteIp = "", remotePort = "25000";
+		private AsyncOperation Async;
 		public GameObject chozaFinal;
 		public Texture corazonTexture;
 		public Texture monedasTexture;
@@ -71,76 +72,85 @@ public class Conexion : MonoBehaviour
 				}
 		}
 
-		void  OnGUI ()
-		{
-				if (General.salud <= 0) {
-						return;
-				}
+	void  OnGUI ()
+	{
+			if (General.salud <= 0) {
+					return;
+			}
 
-				GUIStyle style = new GUIStyle ();
-				style.alignment = TextAnchor.MiddleLeft;
-				style = GUI.skin.GetStyle ("label");
-				style.fontSize = (int)(20.0f);
+			GUIStyle style = new GUIStyle ();
+			style.alignment = TextAnchor.MiddleLeft;
+			style = GUI.skin.GetStyle ("label");
+			style.fontSize = (int)(20.0f);
 
-				style = GUI.skin.GetStyle ("button");
-				style.fontSize = (int)(20.0f);
+			style = GUI.skin.GetStyle ("button");
+			style.fontSize = (int)(20.0f);
 
-				style = GUI.skin.GetStyle ("textfield");
-				style.fontSize = (int)(20.0f);
+			style = GUI.skin.GetStyle ("textfield");
+			style.fontSize = (int)(20.0f);
 
-				// Checking if you are connected to the server or not
-				if (Network.peerType == NetworkPeerType.Disconnected) {
-						if (hayJugadores ())
-								Application.LoadLevel ("SelecionarPersonaje");
-						pantallaServidor ();
-						if (GUI.Button (new Rect (25 * (Screen.width / 32), 5 * (Screen.height / 6), Screen.width / 5, Screen.height / 10), "Volver al Menú")) {
-								Application.LoadLevel ("menu");
-								Debug.Log ("Volver aL Menú");
-								if (Application.isMobilePlatform) {
-										Destroy (gameObject,1f);
-								} else {
-										Destroy (gameObject);
-								}
-						}
-				} else {
-						pantallaJuego ();
-						if (!abrirMenu && !verChat) {
-								if (GUI.Button (new Rect (15 * (Screen.width / 16), 5 * (Screen.height / 6), Screen.height/8, Screen.height/8), menu)) {
-										abrirMenu = true;
-										MoverMouse.movimiento = false;
-										MoverMouse.cambioCamara = true;
-								}
-								if (GameObject.Find (Network.player.ipAddress).GetComponent<MoverMouse> ().speed == 3) {
-										if (GUI.Button (new Rect (13 * (Screen.width / 16), 4 * (Screen.height / 6), Screen.height / 8, 5 * (Screen.height / 16)), correr1)) {
-												GameObject.Find (Network.player.ipAddress).GetComponent<MoverMouse> ().speed = 8f;
-												GameObject.Find (Network.player.ipAddress).GetComponent<movimiento> ().speed = 8f;
-										}
-								} else {
-										if (GUI.Button (new Rect (13 * (Screen.width / 16), 4 * (Screen.height / 6), Screen.height / 8, 5 * (Screen.height / 16)), correr2)) {
-												GameObject.Find (Network.player.ipAddress).GetComponent<MoverMouse> ().speed = 3f;
-												GameObject.Find (Network.player.ipAddress).GetComponent<movimiento> ().speed = 3f;
-										}
-								}
-						}
-				}
+			// Checking if you are connected to the server or not
+			if (Network.peerType == NetworkPeerType.Disconnected) {
+					if (hayJugadores ())
+							Application.LoadLevel ("SelecionarPersonaje");
+					pantallaServidor ();
+					if (GUI.Button (new Rect (25 * (Screen.width / 32), 5 * (Screen.height / 6), Screen.width / 5, Screen.height / 10), "Volver al Menú")) {
+							Application.LoadLevel ("menu");
+							Debug.Log ("Volver aL Menú");
+							if (Application.isMobilePlatform) {
+									Destroy (gameObject,1f);
+							} else {
+									Destroy (gameObject);
+							}
+					}
+			} else {
+					pantallaJuego ();
+					if (!abrirMenu && !verChat) {
+							if (GUI.Button (new Rect (15 * (Screen.width / 16), 5 * (Screen.height / 6), Screen.height/8, Screen.height/8), menu)) {
+									abrirMenu = true;
+									MoverMouse.movimiento = false;
+									MoverMouse.cambioCamara = true;
+							}
+							if (GameObject.Find (Network.player.ipAddress).GetComponent<MoverMouse> ().speed == 3) {
+									if (GUI.Button (new Rect (13 * (Screen.width / 16), 4 * (Screen.height / 6), Screen.height / 8, 5 * (Screen.height / 16)), correr1)) {
+											GameObject.Find (Network.player.ipAddress).GetComponent<MoverMouse> ().speed = 8f;
+											GameObject.Find (Network.player.ipAddress).GetComponent<movimiento> ().speed = 8f;
+									}
+							} else {
+									if (GUI.Button (new Rect (13 * (Screen.width / 16), 4 * (Screen.height / 6), Screen.height / 8, 5 * (Screen.height / 16)), correr2)) {
+											GameObject.Find (Network.player.ipAddress).GetComponent<MoverMouse> ().speed = 3f;
+											GameObject.Find (Network.player.ipAddress).GetComponent<movimiento> ().speed = 3f;
+									}
+							}
+					}
+			}
 
-				if (salir) {
-						//nw.RPC ("guardarDatos", RPCMode.All,General.username);
-						StartCoroutine (General.actualizarUser ());
-						Network.Disconnect (500);
-						if (General.misionActual [0] == "4") {
-									//Camera.main.transform.parent = GameObject.Find (Network.player.ipAddress).transform;
-								Application.LoadLevel ("menu");
-						} else {
-								Application.LoadLevel ("lobyScena");
-						}
-						GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
-						foreach (GameObject jugador in players) {
-								Destroy(jugador);
-						}
-						Destroy (this.gameObject,100f);
-				}
+			if (salir) {
+					//nw.RPC ("guardarDatos", RPCMode.All,General.username);
+					StartCoroutine (General.actualizarUser ());
+					Network.Disconnect (500);
+					if (General.misionActual [0] == "4") {
+								//Camera.main.transform.parent = GameObject.Find (Network.player.ipAddress).transform;
+							Application.LoadLevel ("menu");
+					} else {
+							Application.LoadLevel ("lobyScena");
+					}
+					GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+					foreach (GameObject jugador in players) {
+							Destroy(jugador);
+					}
+					Destroy (this.gameObject,100f);
+			}
+
+		if (Async != null) {
+			if (Async.progress < 1) {
+				GUI.Box (new Rect (0, 0, Screen.width, Screen.height), " ");
+				GUI.Label (new Rect (0, 0, 100, 50), "Cargando ...");
+			} else {
+				
+			}
 		}
+	}
 
 		private void pantallaJuego ()
 		{
@@ -269,44 +279,48 @@ public class Conexion : MonoBehaviour
 				SpawnPlayer ();
 		}
 
-		private void SpawnPlayer ()
-		{
-				if (Application.isMobilePlatform) {
-						General.posicionIncial.y += 10f;
-				}
-
-				GameObject g = (GameObject)Network.Instantiate (General.personaje, new Vector3 (General.posicionIncial.x, General.posicionIncial.y + 10f, General.posicionIncial.z), transform.rotation, 0);
-				g.transform.localScale = new Vector3 (2, 2, 2);
-				g.AddComponent<BoxCollider> ();
-				g.GetComponent<BoxCollider> ().size = new Vector3 (0.1f, 0.1f, 0.1f);
-
-				g.name = Network.player.ipAddress;
-
-				Network.isMessageQueueRunning = true;
-
-				if (GameObject.Find("Luz_tormenta")) {
-						Camera.main.GetComponent<Misiones>().luzrayos = GameObject.Find ("Luz_tormenta");
-						Camera.main.GetComponent<Misiones> ().luzrayos.SetActive (false);
-				}
-				switch(int.Parse(General.misionActual[0])){
-				case 1:
-						if (General.paso_mision == 1 && General.misionActual [0] == "1") {
-								Application.LoadLevel("introduccion");
-						} else {
-								Application.LoadLevel("level1");
-						}
-						break;
-				case 2:
-						Application.LoadLevel("level2");
-						break;
-				case 3:
-						Application.LoadLevel("level2");
-						break;
-				}
-				//GameObject g = (GameObject) Network.Instantiate (General.personaje, transform.position, transform.rotation, 0);
-				//g.name = Network.player.ipAddress;
+	private void SpawnPlayer ()
+	{
+		if (Application.isMobilePlatform) {
+				General.posicionIncial.y += 10f;
 		}
 
+		GameObject g = (GameObject)Network.Instantiate (General.personaje, new Vector3 (General.posicionIncial.x, General.posicionIncial.y + 10f, General.posicionIncial.z), transform.rotation, 0);
+		g.transform.localScale = new Vector3 (2, 2, 2);
+		g.AddComponent<BoxCollider> ();
+		g.GetComponent<BoxCollider> ().size = new Vector3 (0.1f, 0.1f, 0.1f);
+
+		g.name = Network.player.ipAddress;
+
+		Network.isMessageQueueRunning = true;
+
+		if (GameObject.Find("Luz_tormenta")) {
+				Camera.main.GetComponent<Misiones>().luzrayos = GameObject.Find ("Luz_tormenta");
+				Camera.main.GetComponent<Misiones> ().luzrayos.SetActive (false);
+		}
+		switch(int.Parse(General.misionActual[0])){
+		case 1:
+			if (General.paso_mision == 1 && General.misionActual [0] == "1") {
+				StartCoroutine(LoadingLevel ("introduccion"));
+			} else {
+				StartCoroutine(LoadingLevel ("level1"));
+			}
+			break;
+		case 2:
+			StartCoroutine(LoadingLevel ("level2"));
+			break;
+		case 3:
+			StartCoroutine(LoadingLevel ("level3"));
+			break;
+		}
+		//GameObject g = (GameObject) Network.Instantiate (General.personaje, transform.position, transform.rotation, 0);
+		//g.name = Network.player.ipAddress;
+	}
+
+	IEnumerator LoadingLevel (string level) {
+		Async = Application.LoadLevelAsync (level);
+		yield return Async;
+	}
 		public IEnumerator desconectarUser ()
 		{
 				string url = General.hosting + "logout";

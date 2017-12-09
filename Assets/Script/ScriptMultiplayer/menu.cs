@@ -7,7 +7,7 @@ public class menu : MonoBehaviour
 {
 
 		public GameObject objetoInstanciar, pj1, pj2, pj3, pj12, pj22, pj13, pj23, pj33, pj32, pjR12, pjR22, pjR32;
-		public GameObject Ubicacioncamara, obj_mision;
+		public GameObject Ubicacioncamara, obj_mision, menu_home, menu_misiones, menu_mision, menu_config;
 		public Text label_username, label_mision;
 		public Texture monedas, vidas;
 		private string[] misiones, mision;
@@ -88,160 +88,123 @@ public class menu : MonoBehaviour
 				case 2:
 						pantallaMisiones ();
 						break;
-				case 3:
-						pantallaMision ();
-						break;
 				case 4:
 						pantallaConfiguracion ();
 						break;
 				}
 		}
+		
+	private void pantallaNormal (GUIStyle style)
+	{
+		label_username.text = General.username;
+		label_mision.text = General.misionActual [1];
+		menu_home.GetComponent<Transform> ().FindChild ("vidas").gameObject.GetComponent<Text> ().text = " X " + General.salud;
+		menu_home.GetComponent<Transform> ().FindChild ("monedas").gameObject.GetComponent<Text> ().text = " X " + General.monedas;
 
-		private void pantallaNormal (GUIStyle style)
-		{
-				GUI.Box (new Rect (Screen.width / 12, Screen.height / 24, 5 * (Screen.width / 12), 23 * (Screen.height / 24)), "");
-	
-				label_username.text = General.username;
-				label_mision.text = General.misionActual [1];
+		if (General.misionActual [0] != "4") {
+			menu_home.GetComponent<Transform> ().FindChild ("btn_reload").gameObject.SetActive (false);
+			menu_home.GetComponent<Transform> ().FindChild ("btn_play").gameObject.SetActive (true);
+		} else {
+			menu_home.GetComponent<Transform> ().FindChild ("btn_reload").gameObject.SetActive (true);
+			menu_home.GetComponent<Transform> ().FindChild ("btn_play").gameObject.SetActive (false);
+		}
 				
-				//GUI.Label (new Rect (2 * (Screen.width / 6) - Screen.width / 8, (Screen.height / 10), Screen.width / 6, Screen.height / 12), General.username);
-				if (porcentaje != "100%")
-						GUI.Label (new Rect (Screen.width - Screen.width / 8, 9 * (Screen.height / 10), Screen.width / 8, Screen.height / 10), porcentaje);
-
-				style = GUI.skin.GetStyle ("label");
-				style.fontSize = (int)(20.0f);
-		
-				//GUI.Box (new Rect (2 * (Screen.width / 6) - Screen.width / 8, 7 * (Screen.height / 40), Screen.width / 6, Screen.height / 48), "");
-		
-				//GUI.Label (new Rect (2 * (Screen.width / 6) - Screen.width / 8, 3 * (Screen.height / 10), Screen.width / 6, Screen.height / 12), "Misión Actual");
-		
-				//GUI.Label (new Rect (3 * (Screen.width / 12) - Screen.width / 8, 4 * (Screen.height / 10), Screen.width / 3, Screen.height / 3), General.misionActual [1]);
-		
-				//if (GUI.Button (new Rect (3 * (Screen.width / 12) - Screen.width / 8, 7 * (Screen.height / 10), Screen.width / 7, Screen.height / 12), "Misiones")) {
-				//		opciones = 2;
-				//}
-
-				if (GUI.Button (new Rect (5 * (Screen.width / 12) - Screen.width / 8, 7 * (Screen.height / 10), Screen.width / 7, Screen.height / 12), "Configuracion")) {
-						opciones = 4;
-				}
-
-		
-		
-				GUI.Box (new Rect (6 * (Screen.width / 10) - Screen.width / 16, (Screen.height / 10), Screen.width / 12, Screen.height / 12), vidas, style);
-				GUI.Label (new Rect (6 * (Screen.width / 10), (Screen.height / 10), Screen.width / 10, Screen.height / 12), "x " + General.salud + "");
-		
-				GUI.Box (new Rect (9 * (Screen.width / 10) - Screen.width / 16, (Screen.height / 10), Screen.width / 12, Screen.height / 12), monedas, style);
-				GUI.Label (new Rect (9 * (Screen.width / 10), (Screen.height / 10), Screen.width / 10, Screen.height / 12), "x " + General.monedas + "");
-				if (General.misionActual [0] != "4") {
-						if (porcentaje == "100%" && GUI.Button (new Rect (4 * (Screen.width / 6), 9 * (Screen.height / 10), Screen.width / 6, Screen.height / 10), "Jugar")) {
-								opciones = 1;
-								SceneManager.LoadScene ("lobyScena");
-						}
-				} else {
-						if(GUI.Button (new Rect (4 * (Screen.width / 6), 9 * (Screen.height / 10), Screen.width / 6, Screen.height / 10), "Reiniciar")){
-								General.paso_mision = 1;
-								General.misionActual [0] = "5";
-								General.salud = 3;
-								General.monedas = 10;
-								StartCoroutine (General.cambiarMision ());
-						}
-				}
+		if (porcentaje != "100%") {
+			GUI.Label (new Rect (Screen.width - Screen.width / 8, 9 * (Screen.height / 10), Screen.width / 8, Screen.height / 10), porcentaje);
 		}
+	}
 
-		public void logout(){
-			opciones = 1;
-			General.conectado = false;
-			General.username = null;
-			General.idPersonaje = 0;
-			General.personaje = null;
-			Destroy (GameObject.Find("IniciarVariables"));
-			Debug.Log ("eliminado");
-			Application.LoadLevel ("main");
-		}
+	public void logout(){
+		opciones = 1;
+		General.conectado = false;
+		General.username = null;
+		General.idPersonaje = 0;
+		General.personaje = null;
+		Destroy (GameObject.Find("IniciarVariables"));
+		Debug.Log ("eliminado");
+		Application.LoadLevel ("main");
+	}
 		
 	public void play(){
 		opciones = 1;
-		SceneManager.LoadScene ("lobyScena");
+		if (porcentaje == "100%") {
+			SceneManager.LoadScene ("lobyScena");
+		}
+	}
+
+	public void reload(){
+		General.paso_mision = 1;
+		General.misionActual [0] = "5";
+		General.salud = 3;
+		General.monedas = 10;
+		StartCoroutine (General.cambiarMision ());
+	}
+
+	public void back_home()
+	{
+		menu_home.gameObject.SetActive (true);
+		menu_misiones.SetActive (false);
+		menu_config.SetActive (false);
+	}
+
+	public void back_misiones()
+	{
+		menu_home.gameObject.SetActive (false);
+		menu_mision.SetActive(false);
+		menu_misiones.SetActive (true);
 	}
 
 	public void pantallaMisiones ()
 	{
-		/*
-		 * for (int i = 0; i < misiones.Length - 1; i++) {
-			string[] mision_array = misiones [i].Split ('-');
-			GameObject obj_mision_1 = obj_mision;
-
-			obj_mision_1.GetComponent<Transform>().FindChild("id").gameObject.GetComponent<Text>().text = mision_array [0];
-			obj_mision_1.GetComponent<Transform>().FindChild("nombre").gameObject.GetComponent<Text>().text = mision_array [0];
-			obj_mision_1.GetComponent<Transform>().FindChild("button").gameObject.GetComponent<Button>().onClick = this.pantallaMision();
-
-			obj_mision_1.transform.localPosition.x += 20;
-
-		}
-		*/
-		for (int i = 0; i < misiones.Length - 1; i++) {
-			string[] mision_array = misiones [i].Split ('-');
-
-					GUI.Label (new Rect (3 * (Screen.width / 20), (i + 3) * (Screen.height / 10), Screen.width / 14, Screen.height / 12), mision_array [0]);
-					GUI.Label (new Rect (4 * (Screen.width / 20), (i + 3) * (Screen.height / 10), Screen.width / 2, Screen.height / 12), mision_array [1]);
-					if (GUI.Button (new Rect (8 * (Screen.width / 10), (i + 3) * (Screen.height / 10), Screen.width / 10, Screen.height / 12), "Detalles")) {
-							opciones = 3;
-							mision = mision_array;
-					}
-			}
-
-			if (GUI.Button (new Rect (7 * (Screen.width / 10), Screen.height - Screen.height / 5, Screen.width / 6, Screen.height / 10), "Volver")) {
-					opciones = 0;
-			}
+		menu_home.gameObject.SetActive (false);
+		menu_misiones.SetActive (true);
 	}
 
-		private void pantallaMision ()
-		{
-				GUIStyle style = new GUIStyle ();
-				style = GUI.skin.GetStyle ("box");
-				style.fontSize = (int)(25.0f);
-				style = GUI.skin.GetStyle ("label");
-				style.fontSize = (int)(25.0f);
-				style.alignment = TextAnchor.UpperLeft;
-				GUI.Box (new Rect (Screen.width / 10, Screen.height / 10, Screen.width - Screen.width / 7, Screen.height - Screen.height / 6), "Misión " + mision [0]);
+	void pantallaMision (string[] mision){
+		menu_mision.SetActive (true);
+		menu_misiones.SetActive (false);
 
-				style.fontStyle = FontStyle.Bold;
-				GUI.Label (new Rect (3 * (Screen.width / 20), 4 * (Screen.height / 20), Screen.width / 2, Screen.height / 12), "Nombre:");
-				style.fontStyle = FontStyle.Normal;
-				GUI.Label (new Rect (7 * (Screen.width / 20), 4 * (Screen.height / 20), 7 * (Screen.width / 12), Screen.height / 6), mision [1]);
-
-				style.fontStyle = FontStyle.Bold;
-				GUI.Label (new Rect (3 * (Screen.width / 20), 7 * (Screen.height / 20), Screen.width / 6, Screen.height / 12), "Requisitos:");
-				style.fontStyle = FontStyle.Normal;
-				GUI.Label (new Rect (7 * (Screen.width / 20), 7 * (Screen.height / 20), 7 * (Screen.width / 12), Screen.height / 3), mision [2]);
-
-
-				if (GUI.Button (new Rect (7 * (Screen.width / 10), Screen.height - Screen.height / 5, Screen.width / 6, Screen.height / 10), "Volver")) {
-						opciones = 2;
-				}
+		menu_mision.GetComponent<Transform>().FindChild("label_title").gameObject.GetComponent<Text>().text = "Mision "+mision[0];
+		menu_mision.GetComponent<Transform>().FindChild("name").gameObject.GetComponent<Text>().text = "Mision "+mision[1];
+		menu_mision.GetComponent<Transform>().FindChild("requirements").gameObject.GetComponent<Text>().text = "Mision "+mision[2];	
+	}
+	public IEnumerator consultarUsuarioPorUsername (WWW www)
+	{
+		yield return www;
+		if (www.error == null) {
+				string[] usuario = www.text.Split ('-');
+				General.salud = int.Parse (usuario [5]);
+				General.monedas = int.Parse (usuario [6]);
+		} else {
+				Debug.Log (www.error);
 		}
+	}
 
-		public IEnumerator consultarUsuarioPorUsername (WWW www)
-		{
-				yield return www;
-				if (www.error == null) {
-						string[] usuario = www.text.Split ('-');
-						General.salud = int.Parse (usuario [5]);
-						General.monedas = int.Parse (usuario [6]);
-				} else {
-						Debug.Log (www.error);
-				}
-		}
+	public IEnumerator consultarMisiones (WWW www)
+	{
+		yield return www;
+		if (www.error == null) {
+					misiones = www.text.Split ('/');
+					for (int i = 0; i < misiones.Length - 1; i++) {
+						string[] mision_array = misiones [i].Split ('-');
+						GameObject obj_mision_1 = Instantiate(obj_mision);
 
-		public IEnumerator consultarMisiones (WWW www)
-		{
-				yield return www;
-				if (www.error == null) {
-						misiones = www.text.Split ('/');
-				} else {
-						Debug.Log (www.error);
-				}
-		}
+
+						obj_mision_1.GetComponent<Transform>().FindChild("id").gameObject.GetComponent<Text>().text = mision_array [0];
+						obj_mision_1.GetComponent<Transform>().FindChild("nombre").gameObject.GetComponent<Text>().text = mision_array [1];
+		
+						obj_mision_1.GetComponent<Transform>().FindChild("button").gameObject.GetComponent<Button>().onClick.AddListener( () => pantallaMision(mision_array));
+
+						obj_mision_1.transform.SetParent(menu_misiones.transform);
+						obj_mision_1.transform.localPosition = obj_mision.transform.localPosition;
+
+						obj_mision_1.GetComponent<RectTransform>().localPosition += ((i*-30)*Vector3.up);
+					}
+				obj_mision.SetActive (false);
+			} else {
+					Debug.Log (www.error);
+			}
+	}
 
 		public IEnumerator consultarMisionActual (WWW www)
 		{
@@ -295,31 +258,12 @@ public class menu : MonoBehaviour
 						Debug.Log (www.error);
 				}
 		}
+	public void pantallaConfiguracion(){
+		menu_config.SetActive (true);
+		menu_home.SetActive(false);
+	}
 
-		void pantallaConfiguracion(){
-				GUIStyle style = new GUIStyle ();
-				style = GUI.skin.GetStyle ("box");
-				style.fontSize = (int)(25.0f);
-				style = GUI.skin.GetStyle ("label");
-				style.fontSize = (int)(20.0f);
-				style.alignment = TextAnchor.UpperLeft;
-				GUI.Box (new Rect (Screen.width / 10, Screen.height / 10, Screen.width - Screen.width / 6, Screen.height - Screen.height / 6), "Configuraciòn Grafica");
-
-				GUI.Label (new Rect((Screen.width / 6), 3*(Screen.height / 10), Screen.width / 6, Screen.height / 10),"Calidad: ");
-				if (GUI.Button (new Rect (2 * (Screen.width / 6), 3*(Screen.height / 10), Screen.width / 7, Screen.height / 10), "Baja")) {
-						QualitySettings.SetQualityLevel (0);
-				}
-
-				if (GUI.Button (new Rect (3 * (Screen.width / 6), 3*(Screen.height / 10), Screen.width / 7, Screen.height / 10), "Media")) {
-						QualitySettings.SetQualityLevel (3);
-				}
-
-				if (GUI.Button (new Rect (4 * (Screen.width / 6), 3*(Screen.height / 10), Screen.width / 7, Screen.height / 10), "Alta")) {
-						QualitySettings.SetQualityLevel (5);
-				}
-
-				if (GUI.Button (new Rect (7 * (Screen.width / 10), Screen.height - Screen.height / 5, Screen.width / 6, Screen.height / 10), "Volver")) {
-						opciones = 0;
-				}				
-		}
+	public void changeQuialy(int level){
+		QualitySettings.SetQualityLevel (level);
+	}
 }
