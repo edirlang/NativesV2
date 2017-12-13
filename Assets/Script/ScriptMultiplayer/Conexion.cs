@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Conexion : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Conexion : MonoBehaviour
 		public string textoAyuda = "Chia";
 		public static string mensaje = "";
 		private ArrayList mensajes;
-		public GameObject prefab, chia, gonzalo;
+	public GameObject prefab, chia, gonzalo, cargando;
 		public Vector3 rotacion;
 		private string idPersonaje;
 		private bool salir = false, abrirMenu = false, verChat = false;
@@ -144,10 +145,9 @@ public class Conexion : MonoBehaviour
 
 		if (Async != null) {
 			if (Async.progress < 1) {
-				GUI.Box (new Rect (0, 0, Screen.width, Screen.height), " ");
-				GUI.Label (new Rect (0, 0, 100, 50), "Cargando ...");
+				cargando.SetActive(true);
 			} else {
-				
+				cargando.SetActive(false);
 			}
 		}
 	}
@@ -321,29 +321,29 @@ public class Conexion : MonoBehaviour
 		Async = Application.LoadLevelAsync (level);
 		yield return Async;
 	}
-		public IEnumerator desconectarUser ()
-		{
-				string url = General.hosting + "logout";
-				WWWForm form = new WWWForm ();
-				form.AddField ("username", General.username);
-				form.AddField ("mision", General.misionActual [0] + "");
-				form.AddField ("pos_x", General.posicionIncial.x + "");
-				form.AddField ("pos_y", General.posicionIncial.y + "");
-				form.AddField ("pos_z", General.posicionIncial.z + "");
-				form.AddField ("vidas", General.salud + "");
-				form.AddField ("monedas", General.monedas + "");
-				form.AddField ("bono", General.bono + "");
-				form.AddField ("paso", General.paso_mision + "");
-				WWW www = new WWW (url, form);
-				yield return www;
-				if (www.error == null) {
-						Debug.Log (www.text);
-						MoverMouse.cambioCamara = false;
-						salir = true;
-				} else {
-						Debug.Log (www.error);
-				}
+	public IEnumerator desconectarUser ()
+	{
+		string url = General.hosting + "logout";
+		WWWForm form = new WWWForm ();
+		form.AddField ("username", General.username);
+		form.AddField ("mision", General.misionActual [0] + "");
+		form.AddField ("pos_x", General.posicionIncial.x + "");
+		form.AddField ("pos_y", General.posicionIncial.y + "");
+		form.AddField ("pos_z", General.posicionIncial.z + "");
+		form.AddField ("vidas", General.salud + "");
+		form.AddField ("monedas", General.monedas + "");
+		form.AddField ("bono", General.bono + "");
+		form.AddField ("paso", General.paso_mision + "");
+		WWW www = new WWW (url, form);
+		yield return www;
+		if (www.error == null) {
+			Debug.Log (www.text);
+			MoverMouse.cambioCamara = false;
+			salir = true;
+		} else {
+			Debug.Log (www.error);
 		}
+	}
 
 		public void chatVer ()
 		{
