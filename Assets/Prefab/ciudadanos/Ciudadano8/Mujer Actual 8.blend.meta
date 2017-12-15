@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: 8fa5d6e9bcd222e4b99dcbcd846f5316
+timeCreated: 1513320162
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: AntBrazoDer
+    100002: AntBrazoDer_0
+    100004: AntBrazoIzq
+    100006: AntBrazoIzq_0
+    100008: Armature
+    100010: Armature_001
+    100012: BrazoDer
+    100014: BrazoDer_0
+    100016: BrazoIzq
+    100018: BrazoIzq_0
+    100020: Cabeza
+    100022: Cabeza_0
+    100024: Cadera
+    100026: Cadera_0
+    100028: Cube_001
+    100030: Esfera_002
+    100032: Esfera_003
+    100034: ManoDer
+    100036: ManoDer_0
+    100038: ManoIzq
+    100040: ManoIzq_0
+    100042: //RootNode
+    100044: MuzloDer
+    100046: MuzloDer_0
+    100048: MuzloIzq
+    100050: MuzloIzq_0
+    100052: Pecho
+    100054: Pecho_0
+    100056: PieDer
+    100058: PieDer_0
+    100060: PieIzq
+    100062: PieIzq_0
+    100064: PiernaDer
+    100066: PiernaDer_0
+    100068: PiernaIzq
+    100070: PiernaIzq_0
+    100072: TobilloDer
+    100074: TobilloDer_0
+    100076: TobilloIzq
+    100078: TobilloIzq_0
+    400000: AntBrazoDer
+    400002: AntBrazoDer_0
+    400004: AntBrazoIzq
+    400006: AntBrazoIzq_0
+    400008: Armature
+    400010: Armature_001
+    400012: BrazoDer
+    400014: BrazoDer_0
+    400016: BrazoIzq
+    400018: BrazoIzq_0
+    400020: Cabeza
+    400022: Cabeza_0
+    400024: Cadera
+    400026: Cadera_0
+    400028: Cube_001
+    400030: Esfera_002
+    400032: Esfera_003
+    400034: ManoDer
+    400036: ManoDer_0
+    400038: ManoIzq
+    400040: ManoIzq_0
+    400042: //RootNode
+    400044: MuzloDer
+    400046: MuzloDer_0
+    400048: MuzloIzq
+    400050: MuzloIzq_0
+    400052: Pecho
+    400054: Pecho_0
+    400056: PieDer
+    400058: PieDer_0
+    400060: PieIzq
+    400062: PieIzq_0
+    400064: PiernaDer
+    400066: PiernaDer_0
+    400068: PiernaIzq
+    400070: PiernaIzq_0
+    400072: TobilloDer
+    400074: TobilloDer_0
+    400076: TobilloIzq
+    400078: TobilloIzq_0
+    4300000: Esfera_002
+    4300002: Esfera_003
+    4300004: Cube_001
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Cube_001
+    13700002: Esfera_002
+    13700004: Esfera_003
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
