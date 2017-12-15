@@ -1,11 +1,19 @@
 Modelo,				Comprobado,		En el juego
 Alcaldia			Si, si
 Atrio 				si, si
+BBVA				Si,
+CarrouselGourmet		Si,
+CasaComercial			Si,
 Davivienda              	si, si
+EdificioCelulares		Si,
 Heladeria el triunfo		si, si
 Hombres siglo XXI		si
+IglesiaPrincipal		Si,
 Indias				si
+MujeresSigloXXI			Si
 Palma alta			si
 Palma boba			si
+ParquePrincipal			Si
 Parqueadero			si, si
-Parqueadero esquina		Esta Mal
+Parqueadero esquina		Si
+RestauranteLaTabla		Si
