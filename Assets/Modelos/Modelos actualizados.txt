@@ -5,6 +5,7 @@ BBVA				Si,
 CarrouselGourmet		Si,
 CasaComercial			Si,
 Davivienda              	si, si
+DrogueriaAlemana		Si
 EdificioCelulares		Si,
 Heladeria el triunfo		si, si
 Hombres siglo XXI		si
