@@ -27,6 +27,24 @@ ModelImporter:
     100038: PiernaIzq
     100040: TobilloDer
     100042: TobilloIzq
+    100044: AntBrazoDer_0
+    100046: AntBrazoIzq_0
+    100048: Armature_001
+    100050: BrazoDer_0
+    100052: BrazoIzq_0
+    100054: Cabeza_0
+    100056: Cadera_0
+    100058: ManoDer_0
+    100060: ManoIzq_0
+    100062: MuzloDer_0
+    100064: MuzloIzq_0
+    100066: Pecho_0
+    100068: PieDer_0
+    100070: PieIzq_0
+    100072: PiernaDer_0
+    100074: PiernaIzq_0
+    100076: TobilloDer_0
+    100078: TobilloIzq_0
     400000: AntBrazoDer
     400002: AntBrazoIzq
     400004: Armature
@@ -49,6 +67,24 @@ ModelImporter:
     400038: PiernaIzq
     400040: TobilloDer
     400042: TobilloIzq
+    400044: AntBrazoDer_0
+    400046: AntBrazoIzq_0
+    400048: Armature_001
+    400050: BrazoDer_0
+    400052: BrazoIzq_0
+    400054: Cabeza_0
+    400056: Cadera_0
+    400058: ManoDer_0
+    400060: ManoIzq_0
+    400062: MuzloDer_0
+    400064: MuzloIzq_0
+    400066: Pecho_0
+    400068: PieDer_0
+    400070: PieIzq_0
+    400072: PiernaDer_0
+    400074: PiernaIzq_0
+    400076: TobilloDer_0
+    400078: TobilloIzq_0
     2300000: Cube_001
     2300002: Esfera_002
     2300004: Esfera_003
@@ -60,6 +96,9 @@ ModelImporter:
     4300004: Cube_001
     7400000: Default Take
     9500000: //RootNode
+    13700000: Cube_001
+    13700002: Esfera_002
+    13700004: Esfera_003
   materials:
     importMaterials: 1
     materialName: 0

@@ -6,72 +6,84 @@ using UnityEngine.UI;
 public class Conexion : MonoBehaviour
 {
 
-		private const string typeName = "Natives-v1.0";
-		private string ipServer = "", remoteIp = "", remotePort = "25000";
-		private AsyncOperation Async;
-		public GameObject chozaFinal;
-		public Texture corazonTexture;
-		public Texture monedasTexture;
-		public Texture ayudaTexture, chat, menu, correr1, correr2, volver, volverConexion, maletaText, piedra;
-		public string textoAyuda = "Chia";
-		public static string mensaje = "";
-		private ArrayList mensajes;
+	private const string typeName = "Natives-v1.0";
+	private string ipServer = "", remoteIp = "", remotePort = "25000";
+	private AsyncOperation Async;
+	public GameObject chozaFinal, pantalla_server, pantalla_game;
+	public InputField ip_friend;
+	public Texture corazonTexture;
+	public Texture monedasTexture;
+	public Texture ayudaTexture, chat, menu, correr1, correr2, volver, volverConexion, maletaText, piedra;
+	public string textoAyuda = "Chia";
+	public static string mensaje = "";
+	private ArrayList mensajes;
 	public GameObject prefab, chia, gonzalo, cargando;
-		public Vector3 rotacion;
-		private string idPersonaje;
-		private bool salir = false, abrirMenu = false, verChat = false;
-		private Vector2 scrollPosition;
-		private int numeroMensajes = 0;
-		private NetworkView nw;
-		private Color color;
-		private float tiempo = 30, tiempo_reinicio = 0.5f;
-		public bool reiniciar;
-		public GUIStyle stilobotones;
+	public Vector3 rotacion;
+	private string idPersonaje;
+	private bool salir = false, abrirMenu = false, verChat = false;
+	private Vector2 scrollPosition;
+	private int numeroMensajes = 0;
+	private NetworkView nw;
+	private Color color;
+	private float tiempo = 30, tiempo_reinicio = 0.5f;
+	public bool reiniciar;
+	public GUIStyle stilobotones;
 
-		void Start ()
-		{
-				if (General.username == "") {
-						Application.LoadLevel ("main");
-						Destroy (gameObject);
-						Destroy (GameObject.Find ("Luz"));
-				}
-
-				color = new Color (Random.Range (0.0f, 0.7f), Random.Range (0.0f, 0.7f), Random.Range (0.0f, 0.7f));
-				mensajes = new ArrayList ();
-				nw = GetComponent<NetworkView> ();
-				DontDestroyOnLoad (this.gameObject);
-				reiniciar = false;
-				if (Application.isMobilePlatform) {
-						tiempo_reinicio = 2f;
-				}
+	void Start ()
+	{
+		if (General.username == "") {
+			Application.LoadLevel ("main");
+			Destroy (gameObject);
+			Destroy (GameObject.Find ("Luz"));
 		}
 
-		void Update ()
-		{
-				
-				if (GameObject.Find ("MainCamera2")) {
-						Destroy (GameObject.Find ("MainCamera2"));
-				}
-
-				if (GameObject.Find ("Main Camera")) {
-						Destroy (GameObject.Find ("Main Camera"));
-				}
-
-				if (GameObject.Find ("camaraPrincipal") && Application.loadedLevelName != "introduccion") {
-						Destroy (GameObject.Find("Main Camera"));
-						GameObject.Find ("camaraPrincipal").name = "Main Camera";
-				}
-				if (reiniciar) {
-						tiempo_reinicio -= Time.deltaTime;
-						if (GameObject.Find ("PlayerJuego2")) {
-								GameObject.Find ("PlayerJuego2").name = "PlayerJuego";
-						}
-						if (tiempo_reinicio < 0) {
-								GameObject.Find (Network.player.ipAddress).transform.position = GameObject.Find ("PlayerJuego").transform.position;
-								reiniciar = false;
-						}
-				}
+		color = new Color (Random.Range (0.0f, 0.7f), Random.Range (0.0f, 0.7f), Random.Range (0.0f, 0.7f));
+		mensajes = new ArrayList ();
+		nw = GetComponent<NetworkView> ();
+		DontDestroyOnLoad (this.gameObject);
+		reiniciar = false;
+		if (Application.isMobilePlatform) {
+				tiempo_reinicio = 2f;
 		}
+	}
+
+	void Update ()
+	{
+			
+		if (GameObject.Find ("MainCamera2")) {
+				Destroy (GameObject.Find ("MainCamera2"));
+		}
+
+		if (GameObject.Find ("Main Camera")) {
+				Destroy (GameObject.Find ("Main Camera"));
+		}
+
+		if (GameObject.Find ("camaraPrincipal") && Application.loadedLevelName != "introduccion") {
+				Destroy (GameObject.Find("Main Camera"));
+				GameObject.Find ("camaraPrincipal").name = "Main Camera";
+		}
+		if (reiniciar) {
+			tiempo_reinicio -= Time.deltaTime;
+			if (GameObject.Find ("PlayerJuego2")) {
+					GameObject.Find ("PlayerJuego2").name = "PlayerJuego";
+			}
+			if (tiempo_reinicio < 0) {
+					GameObject.Find (Network.player.ipAddress).transform.position = GameObject.Find ("PlayerJuego").transform.position;
+					reiniciar = false;
+			}
+		}
+	}
+
+	public void actionBackMenu()
+	{
+		StartCoroutine(LoadingLevel("menu"));
+		Debug.Log ("Volver aL Menú");
+		if (Application.isMobilePlatform) {
+			Destroy (gameObject,1f);
+		} else {
+			Destroy (gameObject);
+		}
+	}
 
 	void  OnGUI ()
 	{
@@ -92,18 +104,10 @@ public class Conexion : MonoBehaviour
 
 			// Checking if you are connected to the server or not
 			if (Network.peerType == NetworkPeerType.Disconnected) {
-					if (hayJugadores ())
-							Application.LoadLevel ("SelecionarPersonaje");
-					pantallaServidor ();
-					if (GUI.Button (new Rect (25 * (Screen.width / 32), 5 * (Screen.height / 6), Screen.width / 5, Screen.height / 10), "Volver al Menú")) {
-							Application.LoadLevel ("menu");
-							Debug.Log ("Volver aL Menú");
-							if (Application.isMobilePlatform) {
-									Destroy (gameObject,1f);
-							} else {
-									Destroy (gameObject);
-							}
-					}
+				if (hayJugadores ()) {
+					StartCoroutine (LoadingLevel("SelecionarPersonaje"));
+				}
+				pantallaServidor ();
 			} else {
 					pantallaJuego ();
 					if (!abrirMenu && !verChat) {
@@ -152,132 +156,113 @@ public class Conexion : MonoBehaviour
 		}
 	}
 
-		private void pantallaJuego ()
-		{
-				GUIStyle style = new GUIStyle ();
-				style = GUI.skin.GetStyle ("label");
-				style.fontSize = (int)(20.0f);
-				mensajesEnviados ();
+	private void pantallaJuego ()
+	{
+		pantalla_server.SetActive (false);
+		pantalla_game.SetActive (true);
+		GUIStyle style = new GUIStyle ();
+		style = GUI.skin.GetStyle ("label");
+		style.fontSize = (int)(20.0f);
+		mensajesEnviados ();
 
-				if (Network.isServer) {
-						GUI.Label (new Rect (Screen.width / 2 - Screen.width / 8, 0, Screen.width / 4, Screen.height / 12), "TU IP: " + Network.player.ipAddress);
-						//GUI.Label (new Rect (7*(Screen.width / 10), Screen.height - Screen.height / 9, Screen.width / 4, Screen.height / 9),"Puerto: " + Network.player.port.ToString() );
+		if (Network.isServer) {
+			pantalla_game.GetComponent<Transform>().FindChild("ip").gameObject.GetComponent<Text>().text = "TU IP: " + Network.player.ipAddress;
+		}
+
+		style.fontSize = (int)(25.0f);
+		style.alignment = TextAnchor.LowerLeft;
+		// Vidas
+		pantalla_game.GetComponent<Transform>().FindChild("vidas").gameObject.GetComponent<Text>().text = "x " + General.salud;
+		//Monedas
+		pantalla_game.GetComponent<Transform>().FindChild("monedas").gameObject.GetComponent<Text>().text = "x " + General.monedas;
+
+		// Ayuda
+		if (GUI.Button (new Rect (Screen.width/30 , 9 * (Screen.height / 12) , Screen.height/6, Screen.height / 6), ayudaTexture) && Application.loadedLevelName != "introduccion") {
+				Misiones.instanciar = true;
+				MoverMouse.movimiento = false;
+				MoverMouse.cambioCamara = true;
+		}
+
+		if (abrirMenu) {
+				GUI.Box (new Rect (0, 0, Screen.width, Screen.height), "Menú Pausa");
+
+				if (GUI.Button (new Rect (Screen.width / 12, Screen.height /3, Screen.width / 6, Screen.height / 4), new GUIContent(volverConexion,"Desconectar"), stilobotones)) {
+						StartCoroutine (desconectarUser ());
 				}
 
-				style.fontSize = (int)(25.0f);
-				style.alignment = TextAnchor.LowerLeft;
-				// Vidas
-				GUI.Box (new Rect (Screen.width - 5 * (Screen.width / 20) , 10, Screen.width / 10, Screen.height / 9), corazonTexture, style);
-				GUI.Label (new Rect (Screen.width - 4 * (Screen.width / 20), 10, Screen.width / 10, Screen.height / 9), "x " + General.salud + "");
+				if (GUI.Button (new Rect (7*(Screen.width / 24), Screen.height /3, Screen.width / 6, Screen.height / 4),  new GUIContent(maletaText,"Maleta"), stilobotones)) {
+						Maleta maleta = Camera.main.gameObject.GetComponent<Maleta> ();
+						maleta.mostarMaleta = true;
 
-				//Monedas
-				GUI.Box (new Rect (Screen.width - 3 * (Screen.width / 20), 10, Screen.width / 10, Screen.height / 9), monedasTexture, style);
+						abrirMenu = false;
+				}
 
-				GUI.Label (new Rect (Screen.width - 2 * (Screen.width / 20), 10, Screen.width / 10, Screen.height / 9), "x " + General.monedas);
-
-				// Ayuda
-				if (GUI.Button (new Rect (Screen.width/30 , 9 * (Screen.height / 12) , Screen.height/6, Screen.height / 6), ayudaTexture) && Application.loadedLevelName != "introduccion") {
-						Misiones.instanciar = true;
+				if (GUI.Button (new Rect (12*(Screen.width / 24), Screen.height /3, Screen.width / 6, Screen.height / 4),  new GUIContent(piedra,"Piedra Hogar"), stilobotones)) {
+						abrirMenu = false;
 						MoverMouse.movimiento = false;
-						MoverMouse.cambioCamara = true;
+						if (GameObject.Find ("PlayerJuego"))
+								GameObject.Find (Network.player.ipAddress).transform.position = GameObject.Find ("PlayerJuego").transform.position;
+						else {
+								GameObject.Find (Network.player.ipAddress).transform.position = GameObject.Find ("PlayerJuego2").transform.position;
+						}
+						MoverMouse.movimiento = true;
 				}
 
-				if (abrirMenu) {
-						GUI.Box (new Rect (0, 0, Screen.width, Screen.height), "Menú Pausa");
+				if (GUI.Button (new Rect (17*(Screen.width / 24), Screen.height /3, Screen.width / 6, Screen.height / 4),new GUIContent(volver,"volver"), stilobotones)) {
+						abrirMenu = false;
+						MoverMouse.movimiento = true;
+						MoverMouse.cambioCamara = false;
+				}
 
-						if (GUI.Button (new Rect (Screen.width / 12, Screen.height /3, Screen.width / 6, Screen.height / 4), new GUIContent(volverConexion,"Desconectar"), stilobotones)) {
-								StartCoroutine (desconectarUser ());
-						}
+		}
 
-						if (GUI.Button (new Rect (7*(Screen.width / 24), Screen.height /3, Screen.width / 6, Screen.height / 4),  new GUIContent(maletaText,"Maleta"), stilobotones)) {
-								Maleta maleta = Camera.main.gameObject.GetComponent<Maleta> ();
-								maleta.mostarMaleta = true;
-
-								abrirMenu = false;
-						}
-
-						if (GUI.Button (new Rect (12*(Screen.width / 24), Screen.height /3, Screen.width / 6, Screen.height / 4),  new GUIContent(piedra,"Piedra Hogar"), stilobotones)) {
-								abrirMenu = false;
+		//Chat
+		if (!abrirMenu) {
+				if (verChat) {
+						style = GUI.skin.GetStyle ("label");
+						style.fontSize = (int)(15.0f);
+						chatVer ();
+				} else {
+						if (GUI.Button (new Rect (15 * (Screen.width / 16), 4 * (Screen.height / 6), Screen.height/8, Screen.height/8), chat)) {
+								verChat = true;
 								MoverMouse.movimiento = false;
-								if (GameObject.Find ("PlayerJuego"))
-										GameObject.Find (Network.player.ipAddress).transform.position = GameObject.Find ("PlayerJuego").transform.position;
-								else {
-										GameObject.Find (Network.player.ipAddress).transform.position = GameObject.Find ("PlayerJuego2").transform.position;
-								}
-								MoverMouse.movimiento = true;
-						}
-
-						if (GUI.Button (new Rect (17*(Screen.width / 24), Screen.height /3, Screen.width / 6, Screen.height / 4),new GUIContent(volver,"volver"), stilobotones)) {
-								abrirMenu = false;
-								MoverMouse.movimiento = true;
-								MoverMouse.cambioCamara = false;
-						}
-
-				}
-
-				//Chat
-				if (!abrirMenu) {
-						if (verChat) {
-								style = GUI.skin.GetStyle ("label");
-								style.fontSize = (int)(15.0f);
-								chatVer ();
-						} else {
-								if (GUI.Button (new Rect (15 * (Screen.width / 16), 4 * (Screen.height / 6), Screen.height/8, Screen.height/8), chat)) {
-										verChat = true;
-										MoverMouse.movimiento = false;
-										MoverMouse.cambioCamara = true;
-								}
+								MoverMouse.cambioCamara = true;
 						}
 				}
 		}
+	}
 
-		private void pantallaServidor ()
-		{
-				GUI.Box (new Rect (0, 0, Screen.width, (Screen.height)), "Bienvenido a Natives");
+	private void pantallaServidor ()
+	{
+		pantalla_server.SetActive (true);
+		pantalla_game.SetActive (false);
+	}
 
-				if (Network.peerType == NetworkPeerType.Disconnected) {
-						GUI.Label (new Rect (Screen.width / 24, 2 * (Screen.height / 10), 2 * (Screen.width / 3), (Screen.height / 10)), "Deseas ser el anfitrión de tus amigos");
+	public void StartServer ()
+	{
+		Network.InitializeServer (20, 25000, false);
+		ipServer = Network.player.ipAddress;
+		//SpawnPlayer ();
+		pantalla_server.SetActive (false);
+	}
 
-						if (GUI.Button (new Rect (2 * (Screen.width / 3), 2 * (Screen.height / 10), (Screen.width / 6), (Screen.height / 10)), "Crear Sala")) {
-								StartServer ();
-						}
+	void OnServerInitialized ()
+	{
+			SpawnPlayer ();
+	}
 
-						GUI.Label (new Rect (Screen.width / 24, 4 * (Screen.height / 10), Screen.width, (Screen.height / 10)), "Deseas conectarte a una sala");
-
-						GUI.Label (new Rect (Screen.width / 24, 5 * (Screen.height / 10), 2 * (Screen.width / 3), (Screen.height / 10)), "Escribe el numero IP de tu amigo");
-						remoteIp = GUI.TextField (new Rect (7 * (Screen.width / 12), 5 * (Screen.height / 10), Screen.width / 4, (Screen.height / 10)), remoteIp);
-						//GUI.Label (new Rect(Screen.width/24, 6*(Screen.height/10), 2*(Screen.width/3), 5*(Screen.height/10)),"Escribe el numero del puerto de tu amigo");
-						//remotePort = GUI.TextField(new Rect(7*(Screen.width/12), 6*(Screen.height/10), Screen.width/4, (Screen.height/10)),remotePort);
-
-						if (GUI.Button (new Rect (7 * (Screen.width / 12), 5 * (Screen.height / 6), Screen.width / 6, Screen.height / 10), "Conectar")) {
-								JoinServer ();
-						}
-				}
-		}
-
-		private void StartServer ()
-		{
-				Network.InitializeServer (20, 25000, false);
-				ipServer = Network.player.ipAddress;
-				//SpawnPlayer ();
-		}
-
-		void OnServerInitialized ()
-		{
-				SpawnPlayer ();
-		}
-
-		private void JoinServer ()
-		{
-				Network.Connect (remoteIp, int.Parse (remotePort));
-		}
+	public void JoinServer ()
+	{
+		remoteIp = ip_friend.text.ToString ();
+		Network.Connect (remoteIp, int.Parse (remotePort));
+	}
 
 
-		void  OnConnectedToServer ()
-		{
-				Network.isMessageQueueRunning = false;
-				SpawnPlayer ();
-		}
+	void  OnConnectedToServer ()
+	{
+			Network.isMessageQueueRunning = false;
+			SpawnPlayer ();
+	}
 
 	private void SpawnPlayer ()
 	{

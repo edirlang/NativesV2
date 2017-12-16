@@ -27,6 +27,7 @@ ModelImporter:
     100038: PiernaIzq
     100040: TobilloDer
     100042: TobilloIzq
+    100044: Armature_001
     400000: AntBrazoDer
     400002: AntBrazoIzq
     400004: Armature
@@ -49,6 +50,7 @@ ModelImporter:
     400038: PiernaIzq
     400040: TobilloDer
     400042: TobilloIzq
+    400044: Armature_001
     2300000: Cube_001
     2300002: Esfera_002
     2300004: Esfera_003
@@ -60,6 +62,9 @@ ModelImporter:
     4300004: Cube_001
     7400000: Default Take
     9500000: //RootNode
+    13700000: Cube_001
+    13700002: Esfera_002
+    13700004: Esfera_003
   materials:
     importMaterials: 1
     materialName: 0

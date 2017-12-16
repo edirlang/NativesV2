@@ -60,6 +60,9 @@ ModelImporter:
     4300004: Cube_001
     7400000: Default Take
     9500000: //RootNode
+    13700000: Cube_001
+    13700002: Esfera_002
+    13700004: Esfera_003
   materials:
     importMaterials: 1
     materialName: 0
