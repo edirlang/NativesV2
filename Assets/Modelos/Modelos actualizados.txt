@@ -4,6 +4,7 @@ Atrio 				si, si
 BBVA				Si,
 CarrouselGourmet		Si,
 CasaComercial			Si,
+CasaDeEmpeño			Si,
 Davivienda              	si, si
 DrogueriaAlemana		Si
 EdificioCelulares		Si,
@@ -14,6 +15,7 @@ Indias				si
 MujeresSigloXXI			Si
 Palma alta			si
 Palma boba			si
+Panaderia			Si
 ParquePrincipal			Si
 Parqueadero			si, si
 Parqueadero esquina		Si
